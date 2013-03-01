@@ -1,0 +1,72 @@
+$def with (rounds, team, scoringdata, rankdata, linebonus)
+$code:
+    def autonomous(digit):
+        if digit == 0:
+            return "False"
+        else: return "True"
+<title>Team $team</title>
+<form action="/check" method=POST>
+    <center><p><span class="bigtitle">Team $team[0][0] - $team[0][1] on Round $rounds</span></p>
+    <p><span class="title">Number of Rings</span></p>
+        <table border="1">
+		    <tr>
+			    <th></th>
+			    <th class="text">Column 1</th>
+			    <th class="text">Column 2</th>
+			    <th class="text">Column 3</th>
+		    </tr>
+		    <tr>
+			    <th class="text" nowrap>3rd Row</th>
+			    $for i in range(0,3):
+			        <td class="text"><center>$scoringdata[0][i]</center></td>
+		    </tr>
+		    <tr>
+			    <th class="text" nowrap>2nd Row</th>
+			    $for i in range(3,6):
+			        <td class="text"><center>$scoringdata[0][i]</center></td>
+		    </tr>
+		    <tr>
+		        <th class="text" nowrap>1st Row</th>
+		        $for i in range(6, 9):
+		            <td class="text"><center>$scoringdata[0][i]</td>
+	    </table>
+	    <span class="title"><p><center>Number of Line Bonuses</center></p></span>
+	    <center>$linebonus[0]</center>
+	    <p><span class="title">Rankings</span></p>
+        <table border="1">
+            <tr>
+                <th class="text">Blocking</th>
+                <th class="text">Ramp</th>
+                <th class="text">Defense</th>
+                <th class="text">Autonomous</th>
+            </tr>
+            <tr>
+                <td class="text"><center>$rankdata[0][0]</center></td>
+                <td class="text"><center>$rankdata[0][1]</center></td>
+                <td class="text"><center>$rankdata[0][2]</center></td>
+                <td class="text"><center>$autonomous(rankdata[0][3])</td>
+            </tr>
+        </table>
+        <p><span class="title">Is the above data correct?</span></p>
+        <span style="white-space: nowrap; display: inline"><label for="yes" class="text">Yes: </label>
+        <input type="checkbox" name="yes"><br></span><br />
+        <input class="text" type="submit" value="Submit">
+    </center>
+    <input type="hidden" name="id13" value="$scoringdata[0][0]">
+    <input type="hidden" name="id23" value="$scoringdata[0][1]">
+    <input type="hidden" name="id33" value="$scoringdata[0][2]">
+    <input type="hidden" name="id12" value="$scoringdata[0][3]">
+    <input type="hidden" name="id22" value="$scoringdata[0][4]">
+    <input type="hidden" name="id32" value="$scoringdata[0][5]">
+    <input type="hidden" name="id11" value="$scoringdata[0][6]">
+    <input type="hidden" name="id21" value="$scoringdata[0][7]">
+    <input type="hidden" name="id31" value="$scoringdata[0][8]">
+    <input type="hidden" name="linebonus" value="$linebonus">
+    <input type="hidden" name="team1" value="$team[0][0]">
+    <input type="hidden" name="teamname" value="$team[0][1]">
+    <input type="hidden" name="rounds" value="$rounds">
+    <input type="hidden" name="blocking" value="$rankdata[0][0]">
+    <input type="hidden" name="ramp" value="$rankdata[0][1]">
+    <input type="hidden" name="defense" value="$rankdata[0][2]">
+    <input type="hidden" name="autonomous" value="$rankdata[0][3]">
+</form>

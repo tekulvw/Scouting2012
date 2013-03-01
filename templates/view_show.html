@@ -1,0 +1,42 @@
+$def with (teamnum, name, scores, percents, rounds, ranklist)
+
+<center>
+    <p><span class="bigtitle">Information on: <br>Team $teamnum[0] - $name[0]</span></p>
+    <p><span class="title">Total Ring Count After Round $rounds</span></p>
+    <table border="1">
+        <tr>
+            <th class="text">Column 1</th>
+			<th class="text">Column 2</th>
+			<th class="text">Column 3</th>
+		</tr>
+		<tr>
+		    $for i in range(0, 3):
+		        <td class="text"><center>$scores[i] - $percents[i]%</center></td>
+        </tr>
+        <tr>
+            $for i in range(3, 6):
+                <td class="text"><center>$scores[i] - $percents[i]%</center></td>
+        </tr>
+        <tr>
+            $for i in range(6, 9):
+                <td class="text"><center>$scores[i] - $percents[i]%</center></td>
+        </tr>
+    </table>
+    <p><span class="text">Ranking Averages After Round $rounds</span></p>
+    <table border="1">
+        <tr>
+            <th class="text">Blocking</th>
+            <th class="text">Ramp</th>
+            <th class="text">Defense</th>
+            <th class="text">Autonomous
+        </tr>
+        <tr>
+            $for i in range(0, 3):
+                <td class="text"><center>$ranklist[i]</center></td>
+            $if ranklist[3]:
+                <td class="text"><center>True</center></td>
+            $else:
+                <td class="text"><center>False</center></td>    
+        </tr>
+    </table>
+</center>

@@ -1,0 +1,33 @@
+$def with (datalisted)
+
+<span class="bigtitle"><p><center>Information on All Teams</center></p></span>
+<form action="/view" method="POST">
+<center><table border="1">
+    <tr>
+        <th class="text" style="font-size: 30;">Rank</th>
+        <th class="text" style="font-size: 30;">Team Number</th>
+        <th class="text" style="font-size: 30;">Team Name</th>
+        <th class="text" style="font-size: 30;">Average Score</th>
+        <th class="text" style="font-size: 30;">Blocking</th>
+        <th class="text" style="font-size: 30;">Ramp</th>
+        <th class="text" style="font-size: 30;">Defense</th>
+        <th class="text" style="font-size: 30;">Autonomous</th>
+    </tr>
+    <tr>
+$for i in range(0, (len(datalisted)/8)):
+    <tr>
+    $for j in range((i*8), 8+(i*8)):
+        $if j == 1+(i*8):
+            <td class="text" style="font-size: 30;"><center><button action="/view" method="post" name="teamnum" value="$datalisted[j]" style="font-size: 30px">$datalisted[j]</button></center</td>
+        $elif j == 7+(i*8):
+            $if datalisted[j] == "1":
+                <td class="text" style="font-size: 30px;"><center>True</center></td>
+            $else:
+                <td class="text" style="font-size: 30px;"><center>False</center></td>
+        $else:
+            <td class="text" style="font-size: 30;"><center>$datalisted[j]</center></td>
+    </tr>
+</table></center>
+</form>
+<br /><br />
+

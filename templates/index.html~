@@ -1,0 +1,7 @@
+<center>
+    <p><span class="title">What would you like to do?</span></p>
+    <p><span class="text"><a href="/scout">Add</a><br></span></p>
+    <p><span class="text"><a href="/view">View Current stats</a><br></span></p>
+    <p><span class="text"><a href="/update">Update Something</a><br></span></p>
+    <p><span class="text"><a href="/reset">Reset the database</a></span></p>
+</center>

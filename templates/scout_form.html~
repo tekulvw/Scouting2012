@@ -1,0 +1,23 @@
+<form action="/scout" method=POST>
+    <table border="1">
+		<tr>
+			<th></th>
+			<th>Column 1</th>
+			<th>Column 2</th>
+			<th>Column 3</th>
+		</tr>
+		<tr>
+			<th nowrap>3rd Row</th>
+			<td><input type="number" maxlength="2" name="1_3" size="10%" required></td>
+			<td><input type="number" maxlength="2" name="2_3" size="10%" required></td>
+			<td><input type="number" maxlength="2" name="3_3" size="10%" required></td>
+		</tr>
+		<tr>
+			<th nowrap>2nd Row</th>
+			<td><input type="number" maxlength="2" name="1_2" size="10%" required></td>
+			<td><input type="number" maxlength="2" name="2_2" size="10%" required></td>
+			<td><input type="number" maxlength="2" name="3_2" size="10%" required></td>
+		</tr>
+	</table>
+	<input type="submit">
+</form>

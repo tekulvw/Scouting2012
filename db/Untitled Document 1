@@ -1,0 +1,65 @@
+if len(c.execute('''SELECT * FROM full_team''').fetchall()) >= 0:
+    print 'Database is present. It has %i rows.' % len(c.execute('''SELECT * FROM full_team''').fetchall())
+    pass
+else:
+    print 'Oh dear, Im recreating the database, since it doesnt exist.'
+    print len(c.execute('''SELECT * FROM full_team''').fetchall())
+    c.execute('''CREATE TABLE base_team (
+                 id INTEGER PRIMARY KEY AUTOINCREMENT,
+                 team_id INTEGER,
+                 name TEXT,
+                 scoreRD1 INTEGER,
+                 scoreRD2 INTEGER,
+                 scoreRD3 INTEGER,
+                 blocking INTEGER
+                 ramp INTEGER,
+                 defense INTEGER,
+                 autonomous INTEGER
+                 )''')
+    c.execute('''CREATE TABLE round1 (
+                 id INTEGER PRIMARY KEY AUTOINCREMENT,
+                 team_id INTEGER,
+                 topleft INTEGER,
+                 topmid INTEGER,
+                 topright INTEGER,
+                 midleft INTEGER,
+                 midmid INTEGER,
+                 midright INTEGER,
+                 botleft INTEGER,
+                 botmid INTEGER,
+                 botright INTEGER
+                 )''')
+    c.execute('''CREATE TABLE round2 (
+                 id INTEGER PRIMARY KEY AUTOINCREMENT,
+                 team_id INTEGER,
+                 topleft INTEGER,
+                 topmid INTEGER,
+                 topright INTEGER,
+                 midleft INTEGER,
+                 midmid INTEGER,
+                 midright INTEGER,
+                 botleft INTEGER,
+                 botmid INTEGER,
+                 botright INTEGER
+                 )''')
+    c.execute('''CREATE TABLE round3 (
+                 id INTEGER PRIMARY KEY AUTOINCREMENT,
+                 team_id INTEGER,
+                 topleft INTEGER,
+                 topmid INTEGER,
+                 topright INTEGER,
+                 midleft INTEGER,
+                 midmid INTEGER,
+                 midright INTEGER,
+                 botleft INTEGER,
+                 botmid INTEGER,
+                 botright INTEGER
+                 )''')
+    c.execute('''CREATE TABLE full_team (
+                 id INTEGER PRIMARY KEY,
+                 base_team_id INTEGER,
+                 round1_id INTEGER,
+                 round2_id INTEGER,
+                 round3_id INTEGER
+                 )''')
+    conn.commit()

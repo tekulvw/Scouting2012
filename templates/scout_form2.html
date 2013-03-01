@@ -1,0 +1,115 @@
+<script type="text/javascript">
+    window.onload=function(){ var roundselect=document.getElementById("rounds");
+    roundselect.onchange=function() {
+        if(roundselect.value!="1") { //I'm supposing the "Other" option value is 0.
+            document.getElementById("teamnamelabel").style.display="none";
+            document.getElementById("teamnameinput").style.display="none";
+        }else{
+            document.getElementById("teamnamelabel").style.display="inline";
+            document.getElementById("teamnameinput").style.display="inline";
+        }
+    }
+}
+</script>
+
+<center>
+<form action="/check" method=POST>
+    <label class="text" for="team1">Team Number:</label>
+    <input type="number" class="myinput" name="team1" min="0" maxlength="4" required><br><br />
+    <!--<label class="text" for="team2">Team Number of <span style="color:red">Red</span> 2:</label>
+    <input type="number" class="myinput" name="team2" min="0" maxlength="4" required><br>
+    <label class="text" for="team3">Team Number of <span style="color:blue">Blue</span> 1:</label>
+    <input type="number" class="myinput" name="team3" min="0" maxlength="4" required><br>
+    <label class="text" for="team4">Team Number of <span style="color:blue">Blue</span> 2:</label>
+    <input type="number" class="myinput" name="team4" min="0" maxlength="4" required><br>-->
+    <div class="selectlabel">
+        <label for="rounds" class="text">Round:</label>
+        <select name="rounds" class="myselect selectlabel" id="rounds" style="width: 100px;height: 70px">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+    <p><label class="text" for="teamname" id="teamnamelabel">Team Name:</label>
+    <input type="text" class="myinput" name="teamname" id="teamnameinput"></p>
+    <p><span class="title">Number of Rings</span></h3></p>
+    <table border="1">
+		<tr>
+			<th></th>
+			<th class="text">Column 1</th>
+			<th class="text">Column 2</th>
+			<th class="text">Column 3</th>
+		</tr>
+		<tr>
+			<th class="text" nowrap>3rd Row</th>
+			<td><input type="number" class="myinput" min="0" max="6" maxlength="1" name="id13" size="30" value="0" required autofocus></td>
+			<td><input type="number" class="myinput" min="0" max="6" maxlength="1" name="id23" size="30" value="0" required></td>
+			<td><input type="number" class="myinput" min="0" max="6" maxlength="1" name="id33" size="30" value="0" required></td>
+		</tr>
+		<tr>
+			<th class="text" nowrap>2nd Row</th>
+			<td><input type="number" class="myinput" min="0" max="6" maxlength="1" name="id12" size="30" value="0" required></td>
+			<td><input type="number" class="myinput" min="0" max="6" maxlength="1" name="id22" size="30" value="0" required></td>
+			<td><input type="number" class="myinput" min="0" max="6" maxlength="1" name="id32" size="30" value="0" required></td>
+		</tr>
+		<tr>
+		    <th class="text" nowrap>1st Row</th>
+			<td><input type="number" class="myinput" min="0" max="6" maxlength="1" name="id11" size="30" value="0" required></td>
+			<td><input type="number" class="myinput" min="0" max="6" maxlength="1" name="id21" size="30" value="0" required></td>
+			<td><input type="number" class="myinput" min="0" max="6" maxlength="1" name="id31" size="30" value="0" required></td>
+		</tr>
+	</table>
+	<span class="title"><p><center>Number of Line Bonuses</center></p></span>
+	    <select name="linebonus" class="myselect selectlabel" id="linebonus" style="width: 100px;height: 70px">
+        $for i in range(0, 9):
+            <option value="$i">$i</option>
+        </select>
+	<span class="title"><p><center>Ratings</center></p></span>
+	<table border="1">
+	    <tr>
+	        <th class="text" style="padding-left: 5px;padding-right: 5px">Blocking</th>
+	        <th class="text" style="padding-left: 30px;padding-right: 30px">Ramp</th>
+	        <th class="text" style="padding-left: 5px;padding-right: 5px">Defense</th>
+	        <th class="text" style="padding-left: 5px;padding-right: 5px">Autonomous</th>
+	    </tr>
+	    <tr>
+	        <td>
+	            <select name="blocking" class="myselect">
+	                <option value="0">0</option>
+	                <option value="1">1</option>
+	                <option value="2">2</option>
+	                <option value="3">3</option>
+	                <option value="4">4</option>
+	                <option value="5">5</option>
+	            </select>
+	        </td>
+	        <td>
+	            <select name="ramp" class="myselect">
+	                <option value="0">0</option>
+	                <option value="1">1</option>
+	                <option value="2">2</option>
+	                <option value="3">3</option>
+	                <option value="4">4</option>
+	                <option value="5">5</option>
+	            </select>
+	        </td>
+	        <td>
+	            <select name="defense" class="myselect">
+	                <option value="0">0</option>
+	                <option value="1">1</option>
+	                <option value="2">2</option>
+	                <option value="3">3</option>
+	                <option value="4">4</option>
+	                <option value="5">5</option>
+	            </select>
+            </td>
+            <td>
+	            <input class="checkbox" type="checkbox" name="autonomous">
+	        </td>
+	    </tr>
+	</table><br>
+	<p><input class="text" type="submit" value="Submit"><input type="reset" class="text" value="Reset"></p><br>
+</form>
+</center>

@@ -1,0 +1,14 @@
+$def with (teamlist)
+
+<center>
+    <form action="/view" method="POST">
+        <p><span class="title">View Data</span></p>
+            <label for="teamnum" class="text">Choose a team:</label>
+            <select name="teamnum" class="myselect selectlabel" style="width: 240px;height: 70px">
+                <option value="export">All</option
+            $for item in teamlist:
+                <option value="$item">$item[0]</option>
+            </select>
+            <p><input type="submit" value="Submit" class="text"></p>
+    </form>
+</center>
